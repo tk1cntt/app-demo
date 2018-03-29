@@ -1,48 +1,119 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import { Images } from '../Themes'
-import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
+import { AppRegistry, StyleSheet, Text, View, Button } from 'react-native'
+import { NavigationComponent } from 'react-native-material-bottom-navigation'
+import { TabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-// Styles
-import styles from './Styles/LaunchScreenStyles'
+class HomeScreen extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'Home',
+    tabBarIcon: () => <Icon size={24} color="white" name="home" />
+  }
 
-export default class LaunchScreen extends Component {
   render() {
     return (
-      <BottomNavigation
-        labelColor="white"
-        rippleColor="white"
-        style={{
-          height: 56,
-          elevation: 8,
-          position: 'absolute',
-          left: 0,
-          bottom: 0,
-          right: 0
-        }}
-      >
-        <Tab
-          barBackgroundColor="#37474F"
-          label="Home"
-          icon={<Icon size={24} color="white" name="home" />}
-        />
-        <Tab
-          barBackgroundColor="#00796B"
-          label="Scorecards"
-          icon={<Icon size={24} color="white" name="speaker-notes" />}
-        />
-        <Tab
-          barBackgroundColor="#5D4037"
-          label="History"
-          icon={<Icon size={24} color="white" name="insert-invitation" />}
-        />
-        <Tab
-          barBackgroundColor="#3E2723"
-          label="Menu"
-          icon={<Icon size={24} color="white" name="reorder" />}
-        />
-      </BottomNavigation>
+      <View>
+        <Text>Home</Text>
+      </View>
     )
   }
 }
+
+class ScorecardScreen extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'Scorecards',
+    tabBarIcon: () => <Icon size={24} color="white" name="speaker-notes" />
+  }
+
+  render() {
+    return (
+      <View>
+        <Text>Scorecards</Text>
+      </View>
+    )
+  }
+}
+
+class HistoryScreen extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'History',
+    tabBarIcon: () => <Icon size={24} color="white" name="insert-invitation" />
+  }
+
+  render() {
+    return (
+      <View>
+        <Text>History</Text>
+      </View>
+    )
+  }
+}
+
+class GCoinScreen extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'GCoin',
+    tabBarIcon: () => <Icon size={24} color="white" name="monetization-on" />
+  }
+
+  render() {
+    return (
+      <View>
+        <Text>GCoin</Text>
+      </View>
+    )
+  }
+}
+
+class MenuScreen extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'Menu',
+    tabBarIcon: () => <Icon size={24} color="white" name="reorder" />
+  }
+
+  render() {
+    return (
+      <View>
+        <Text>Menu</Text>
+      </View>
+    )
+  }
+}
+
+const LaunchScreen = TabNavigator(
+  {
+    HomeTab: { screen: HomeScreen },
+    ScorecardTab: { screen: ScorecardScreen },
+    HistoryTab: { screen: HistoryScreen },
+    GCoinTab: { screen: GCoinScreen },
+    MenuTab: { screen: MenuScreen }
+  },
+  {
+    tabBarComponent: NavigationComponent,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+      bottomNavigationOptions: {
+        labelColor: 'white',
+        rippleColor: 'white',
+        tabs: {
+          HomeTab: {
+            barBackgroundColor: '#37474F'
+          },
+          ScorecardTab: {
+            barBackgroundColor: '#00796B'
+          },
+          HistoryTab: {
+            barBackgroundColor: '#5D4037'
+          },
+          GCoinTab: {
+            barBackgroundColor: '#5D4047'
+          },
+          MenuTab: {
+            barBackgroundColor: '#3E2723'
+          }
+        }
+      }
+    }
+  }
+)
+
+export default LaunchScreen;
