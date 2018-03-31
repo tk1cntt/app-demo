@@ -4,85 +4,17 @@ import { NavigationComponent } from 'react-native-material-bottom-navigation'
 import { TabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-class HomeScreen extends Component {
-  static navigationOptions = {
-    tabBarLabel: 'Home',
-    tabBarIcon: () => <Icon size={24} color="white" name="home" />
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>Home</Text>
-      </View>
-    )
-  }
-}
-
-class ScorecardScreen extends Component {
-  static navigationOptions = {
-    tabBarLabel: 'Scorecards',
-    tabBarIcon: () => <Icon size={24} color="white" name="speaker-notes" />
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>Scorecards</Text>
-      </View>
-    )
-  }
-}
-
-class HistoryScreen extends Component {
-  static navigationOptions = {
-    tabBarLabel: 'History',
-    tabBarIcon: () => <Icon size={24} color="white" name="insert-invitation" />
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>History</Text>
-      </View>
-    )
-  }
-}
-
-class GCoinScreen extends Component {
-  static navigationOptions = {
-    tabBarLabel: 'GCoin',
-    tabBarIcon: () => <Icon size={24} color="white" name="monetization-on" />
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>GCoin</Text>
-      </View>
-    )
-  }
-}
-
-class MenuScreen extends Component {
-  static navigationOptions = {
-    tabBarLabel: 'Menu',
-    tabBarIcon: () => <Icon size={24} color="white" name="reorder" />
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>Menu</Text>
-      </View>
-    )
-  }
-}
+// import screen
+import HomeScreen from './HomeScreen'
+import ScoreCardScreen from './ScoreCardScreen'
+import HistoryScreen from './HistoryScreen'
+import GCoinScreen from './GCoinScreen'
+import MenuScreen from './MenuScreen'
 
 const LaunchScreen = TabNavigator(
   {
     HomeTab: { screen: HomeScreen },
-    ScorecardTab: { screen: ScorecardScreen },
+    ScoreCardTab: { screen: ScoreCardScreen },
     HistoryTab: { screen: HistoryScreen },
     GCoinTab: { screen: GCoinScreen },
     MenuTab: { screen: MenuScreen }
@@ -90,6 +22,7 @@ const LaunchScreen = TabNavigator(
   {
     tabBarComponent: NavigationComponent,
     tabBarPosition: 'bottom',
+    initialRouteName: 'MenuTab',
     tabBarOptions: {
       bottomNavigationOptions: {
         labelColor: 'white',
@@ -98,17 +31,17 @@ const LaunchScreen = TabNavigator(
           HomeTab: {
             barBackgroundColor: '#37474F'
           },
-          ScorecardTab: {
+          ScoreCardTab: {
             barBackgroundColor: '#00796B'
           },
           HistoryTab: {
-            barBackgroundColor: '#5D4037'
+            barBackgroundColor: '#37474F'
           },
           GCoinTab: {
-            barBackgroundColor: '#5D4047'
+            barBackgroundColor: '#00796B'
           },
           MenuTab: {
-            barBackgroundColor: '#3E2723'
+            barBackgroundColor: '#37474F'
           }
         }
       }

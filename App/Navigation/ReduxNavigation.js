@@ -14,6 +14,10 @@ class ReduxNavigation extends React.Component {
       if (nav.routes.length === 1 && (nav.routes[0].routeName === 'LaunchScreen')) {
         return false
       }
+      // Back performs pop, unless we're to main screen [0,0]
+      // if (navigation.state.index === 0 && navigation.state.routes[0].index === 0) {
+      //   BackHandler.exitApp()
+      // }
       // if (shouldCloseApp(nav)) return false
       dispatch({ type: 'Navigation/BACK' })
       return true
