@@ -5,7 +5,7 @@ import { TabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 // import screen
-import HomeScreen from './HomeScreen'
+import HomeScreen from './LoginScreen'
 import ScoreCardScreen from './ScoreCardScreen'
 import HistoryScreen from './HistoryScreen'
 import GCoinScreen from './GCoinScreen'
@@ -22,7 +22,7 @@ const LaunchScreen = TabNavigator(
   {
     tabBarComponent: NavigationComponent,
     tabBarPosition: 'bottom',
-    initialRouteName: 'MenuTab',
+    initialRouteName: 'HomeTab',
     tabBarOptions: {
       bottomNavigationOptions: {
         labelColor: 'white',
